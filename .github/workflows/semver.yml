@@ -16,31 +16,7 @@ jobs:
           fetch-depth: 0
 
       - name: semantic version
-        uses: anothrNick/github-tag-action@1.67.0 # Don't use @master or @v1 unless you're happy to test the latest version
+        uses: anothrNick/github-tag-action@1.67.0
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # if you don't want to set write permissions use a PAT token
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           WITH_V: false
-        # uses: cycjimmy/semantic-release-action@v4
-        # with:
-        #   branch: "master"
-        # env:
-        #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        # uses: paulhatch/semantic-version@v5.3.0
-        # with:
-        #   # The prefix to use to identify tags
-        #   tag_prefix: "v"
-        #   # A string which, if present in a git commit, indicates that a change represents a
-        #   # major (breaking) change, supports regular expressions wrapped with '/'
-        #   major_pattern: "MAJOR"
-        #   # Same as above except indicating a minor change, supports regular expressions wrapped with '/'
-        #   minor_pattern: "MINOR"
-        #   # A string to determine the format of the version output
-        #   version_format: "${major}.${minor}.${patch}-prerelease${increment}"
-        #   # If this is set to true, *every* commit will be treated as a new version.
-        #   bump_each_commit: true
-        #   # If bump_each_commit is also set to true, setting this value will cause the version to increment only if the pattern specified is matched.
-        #   bump_each_commit_patch_pattern: "PATCH"
-        #   # If true, the body of commits will also be searched for major/minor patterns to determine the version type.
-        #   search_commit_body: true
-        #   # If enabled, diagnostic information will be added to the action output.
-        #   debug: true
