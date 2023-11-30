@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/sknutsen/harvestovertimelib/models"
+	"github.com/sknutsen/harvestovertimelib/v2/models"
 )
 
 func TestHarvestOvertime(t *testing.T) {

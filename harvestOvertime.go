@@ -6,8 +6,8 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/sknutsen/harvestovertimelib/lib"
-	"github.com/sknutsen/harvestovertimelib/models"
+	"github.com/sknutsen/harvestovertimelib/v2/lib"
+	"github.com/sknutsen/harvestovertimelib/v2/models"
 )
 
 func GetTotalOvertime(entries models.TimeEntries, settings models.Settings) float64 {
