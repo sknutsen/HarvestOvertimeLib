@@ -35,17 +35,19 @@ func TestHarvestOvertime(t *testing.T) {
 		},
 	}
 
-	entries, err := ListEntries(client, settings)
+	if settings.AccessToken != "" {
+		entries, err := ListEntries(client, settings)
 
-	if err != nil {
-		t.Error(err)
+		if err != nil {
+			t.Error(err)
+		}
+
+		var totalHours float64
+		for _, v := range entries.TimeEntries {
+			totalHours += v.Hours
+		}
+
+		hours := GetTotalOvertime(entries, settings)
+		t.Logf("\novertime: %f\ntotal hours worked: %f", hours, totalHours)
 	}
-
-	var totalHours float64
-	for _, v := range entries.TimeEntries {
-		totalHours += v.Hours
-	}
-
-	hours := GetTotalOvertime(entries, settings)
-	t.Logf("\novertime: %f\ntotal hours worked: %f", hours, totalHours)
 }
