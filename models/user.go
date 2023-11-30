@@ -1,6 +1,6 @@
 package models
 
-type Task struct {
-	ID   uint64 `json:"id"`
+type User struct {
+	ID   int    `json:"id"`
 	Name string `json:"name"`
 }
