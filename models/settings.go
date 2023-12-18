@@ -13,4 +13,8 @@ type Settings struct {
 	DaysInWeek               int            `json:"daysInWeek"`
 	WorkDayHours             float32        `json:"workDayHours"`
 	SimulateFullWeekAtToDate bool           `json:"simulateFullWeekAtToDate"`
+	UserId                   int            `json:"userId"`
+	ClientId                 int            `json:"clientId"`
+	ProjectId                int            `json:"projectId"`
+	TaskId                   int            `json:"taskId"`
 }

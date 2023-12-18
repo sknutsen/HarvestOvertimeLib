@@ -27,14 +27,6 @@ func Contains[T string | time.Weekday](arr []T, val T) bool {
 	return false
 }
 
-func AddHoursForWeek(weeks map[string]float64, week string, hours float64) {
-	weeks[week] += hours
-}
-
-func AddHoursOnDate(dates map[time.Time]float64, date time.Time, hours float64) {
-	dates[date] += hours
-}
-
 func AppendDate(dates []time.Time, date time.Time) []time.Time {
 	var exists bool = false
 
@@ -46,7 +38,6 @@ func AppendDate(dates []time.Time, date time.Time) []time.Time {
 	}
 
 	if !exists {
-		fmt.Printf("Adding date %s\n", date)
 		dates = append(dates, date)
 	}
 
@@ -57,4 +48,21 @@ func GetWeekInYearAsString(date time.Time) string {
 	year, week := date.ISOWeek()
 
 	return fmt.Sprintf("%d-%d", year, week)
+}
+
+func GetDateOfWeekday(lastDate time.Time, weekDay time.Weekday) string {
+	date := lastDate.AddDate(0, 0, int(lastDate.Day())-int(lastDate.Weekday())+int(weekDay))
+
+	// switch weekDay {
+	// case time.Monday:
+
+	// case time.Tuesday:
+	// case time.Wednesday:
+	// case time.Thursday:
+	// case time.Friday:
+	// case time.Saturday:
+	// case time.Sunday:
+	// }
+
+	return fmt.Sprintf("%d-%d-%d", date.Year(), date.Month(), date.Day())
 }
